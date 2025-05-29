@@ -7,6 +7,7 @@
     <meta name="description" content="Află mai multe despre CoinExpert, comunitatea de traderi profesioniști din România, cu focus pe educație și instrumente avansate de tranzacționare.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <base href="/my-site/"> <!-- Added to fix 404 errors by setting the base URL -->
     <style>
         body {
             background-color: #0f172a;
@@ -63,14 +64,14 @@
         <!-- Header -->
         <header class="sticky top-0 z-50 bg-opacity-95 backdrop-blur-sm py-4 border-b border-slate-700 shadow-professional">
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
-                <a href="#top" class="text-2xl sm:text-3xl font-bold text-primary">CoinExpert</a>
+                <a href="./index.html" class="text-2xl sm:text-3xl font-bold text-primary">CoinExpert</a> <!-- Updated to use relative path -->
                 <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex gap-6 xl:gap-8 items-center">
-                    <a href="/index.html" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg">Acasă</a>
-                    <a href="/windicatori.html" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg">Windicatori</a>
-                    <a href="/despre-noi.html" class="text-primary font-medium text-lg">Despre Noi</a>
+                    <a href="./index.html" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg">Acasă</a>
+                    <a href="./windicatori.html" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg">Windicatori</a>
+                    <a href="./despre-noi.html" class="text-primary font-medium text-lg">Despre Noi</a>
                     <a href="https://discord.gg/UffPE7Et24" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg">Discord</a>
-                    <a href="#" class="bg-primary hover:bg-primaryHover text-white px-4 xl:px-6 py-2 xl:py-3 rounded-lg transition-colors font-medium text-lg">My Account</a>
+                    <a href="./my-account.html" class="bg-primary hover:bg-primaryHover text-white px-4 xl:px-6 py-2 xl:py-3 rounded-lg transition-colors font-medium text-lg">My Account</a> <!-- Updated to use relative path -->
                 </nav>
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="lg:hidden text-white p-2">
@@ -81,19 +82,19 @@
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="lg:hidden bg-slate-800 border-t border-slate-700 hidden">
                 <nav class="flex flex-col px-4 py-4 space-y-4">
-                    <a href="/index.html" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg py-2">Acasă</a>
-                    <a href="/windicatori.html" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg py-2">Windicatori</a>
-                    <a href="/despre-noi.html" class="text-primary font-medium text-lg py-2">Despre Noi</a>
+                    <a href="./index.html" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg py-2">Acasă</a>
+                    <a href="./windicatori.html" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg py-2">Windicatori</a>
+                    <a href="./despre-noi.html" class="text-primary font-medium text-lg py-2">Despre Noi</a>
                     <a href="https://discord.gg/UffPE7Et24" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg py-2">Discord</a>
-                    <a href="#" class="bg-primary hover:bg-primaryHover text-white px-6 py-3 rounded-lg transition-colors font-medium text-lg text-center">My Account</a>
+                    <a href="./my-account.html" class="bg-primary hover:bg-primaryHover text-white px-6 py-3 rounded-lg transition-colors font-medium text-lg text-center">My Account</a> <!-- Updated to use relative path -->
                 </nav>
             </div>
         </header>
 
         <main class="w-full max-w-7xl mx-auto px-4 sm:px-6">
-            <!-- Back hafif -->
+            <!-- Back Button -->
             <div class="py-4 sm:py-6">
-                <a href="/index.html" class="inline-flex items-center gap-2 text-slate-300 hover:text-primary transition-colors font-medium">
+                <a href="./index.html" class="inline-flex items-center gap-2 text-slate-300 hover:text-primary transition-colors font-medium">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                     Înapoi la pagina principală
                 </a>
@@ -125,7 +126,7 @@
                             Activăm din 2018 pe piața crypto din România, perioadă în care am acumulat o experiență vastă în analiza tehnică și fundamentală a pieței de criptomonede. Echipa noastră este formată din traderi cu experiență, analiști și dezvoltatori de software care lucrează împreună pentru a oferi cele mai bune instrumente și resurse pentru comunitatea noastră.
                         </p>
                         <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
-                            De-a lungul anilor, am dezvoltat și perfecționat indicatori tehnici avansați, am creat cursuri educaționale comprehensive și am construit o comunitate puternică de traderi care se sprijină reciproc în călătoria lor de tranzacț historică.
+                            De-a lungul anilor, am dezvoltat și perfecționat indicatori tehnici avansați, am creat cursuri educaționale comprehensive și am construit o comunitate puternică de traderi care se sprijină reciproc în călătoria lor de tranzacționare.
                         </p>
                     </div>
                 </div>
@@ -145,7 +146,7 @@
                     <div class="bg-slate-800 bg-opacity-50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 sm:p-8 shadow-card transition-all duration-300 hover:bg-slate-800 hover:border-primary hover:shadow-lg hover:scale-105">
                         <div class="flex items-center gap-3 sm:gap-4 mb-4">
                             <svg class="w-6 h-6 sm:w-8 sm:h-8 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
- spectrogram Transparență
+                            <h3 class="text-lg sm:text-xl text-primary font-semibold">Transparență</h3> <!-- Fixed missing h3 tag and removed "spectrogram" typo -->
                         </div>
                         <p class="text-slate-300 leading-relaxed text-sm sm:text-base">Suntem transparenți în tot ceea ce facem, de la rezultatele semnalelor noastre până la modul în care funcționează indicatorii.</p>
                     </div>
@@ -187,7 +188,7 @@
                     Devino parte din comunitatea CoinExpert și beneficiază de instrumente avansate, educație de calitate și suport din partea unei comunități de traderi experimentați.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="/index.html#pricing" class="bg-primary hover:bg-primaryHover text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105 text-center">
+                    <a href="./index.html#pricing" class="bg-primary hover:bg-primaryHover text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105 text-center">
                         Vezi Pachetele Noastre
                     </a>
                     <a href="https://discord.gg/UffPE7Et24" target="_blank" rel="noopener noreferrer" class="border border-slate-600 hover:border-primary text-slate-300 hover:text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-lg transition-all duration-300 text-center">
