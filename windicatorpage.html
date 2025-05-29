@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinExpert - Windicatori</title>
+    <meta name="description" content="Descoperă CoinExpert Windicator, un pachet de indicatori TradingView pentru tranzacționare profesională, cu semnale precise și alerte în timp real.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        header {
+            background-color: #111827;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e293b, #334155);
+        }
+        .card-gradient {
+            background: linear-gradient(135deg, #1e293b, #2d3748);
+        }
+        .shadow-professional {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        .shadow-card {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fade-in-up 0.6s ease-out forwards;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .text-primary { color: #3b82f6; }
+        .hover\:text-primary:hover { color: #3b82f6; }
+        .bg-primary { background-color: #3b82f6; }
+        .hover\:bg-primaryHover:hover { background-color: #2563eb; }
+        .text-success { color: #10b981; }
+        .text-accent { color: #06b6d4; }
+        .text-warning { color: #f59e0b; }
+        .border-primary { border-color: #3b82f6; }
+        .hover\:border-primary:hover { border-color: #3b82f6; }
+        .text-muted { color: #94a3b8; }
+        .border-card { border-color: #1e293b; }
+        .border { border-color: #334155; }
+        .ibs-image {
+            width: 600px;
+            height: 450px;
+            object-fit: contain;
+        }
+        @media (max-width: 1024px) {
+            .ibs-image {
+                width: 100%;
+                max-width: 400px;
+                height: 300px;
+            }
+        }
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <div id="top" class="min-h-screen">
+        <!-- Header -->
+        <header class="sticky top-0 z-50 bg-opacity-95 backdrop-blur-sm py-4 border-b border-slate-700 shadow-professional">
+            <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+                <a href="#top" class="text-2xl sm:text-3xl font-bold text-primary">CoinExpert</a>
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex gap-6 xl:gap-8 items-center">
+                    <a href="/index.html" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg">Acasă</a>
+                    <a href="/windicatori.html" class="text-primary font-medium text-lg">Windicatori</a>
+                    <a href="/despre-noi" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg">Despre Noi</a>
+                    <a href="/index.html#faq" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg">FAQ</a>
+                    <a href="https://discord.gg/UffPE7Et24" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg">Discord</a>
+                    <a href="#" class="bg-primary hover:bg-primaryHover text-white px-4 xl:px-6 py-2 xl:py-3 rounded-lg transition-colors font-medium text-lg">My Account</a>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-2">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="lg:hidden bg-slate-800 border-t border-slate-700 hidden">
+                <nav class="flex flex-col px-4 py-4 space-y-4">
+                    <a href="/index.html" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg py-2">Acasă</a>
+                    <a href="/windicatori.html" class="text-primary font-medium text-lg py-2">Windicatori</a>
+                    <a href="/despre-noi" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg py-2">Despre Noi</a>
+                    <a href="/index.html#faq" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg py-2">FAQ</a>
+                    <a href="https://discord.gg/UffPE7Et24" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-primary transition-colors font-medium text-lg py-2">Discord</a>
+                    <a href="#" class="bg-primary hover:bg-primaryHover text-white px-6 py-3 rounded-lg transition-colors font-medium text-lg text-center">My Account</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="w-full max-w-7xl mx-auto px-4 sm:px-6">
+            <!-- Back Button -->
+            <div class="py-4 sm:py-6">
+                <a href="/index.html" class="inline-flex items-center gap-2 text-slate-300 hover:text-primary transition-colors font-medium">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Înapoi la pagina principală
+                </a>
+            </div>
+
+            <!-- Hero Section - Windicatori with Features -->
+            <section class="hero-gradient rounded-2xl my-4 sm:my-8 overflow-hidden shadow-professional">
+                <div class="px-4 py-8 sm:px-8 sm:py-16 lg:px-16 lg:py-24">
+                    <div class="space-y-6 sm:space-y-8 max-w-4xl mx-auto">
+                        <div class="space-y-4 sm:space-y-6 text-center">
+                            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-primary">
+                                CoinExpert Windicator
+                            </h1>
+                            <p class="text-lg sm:text-xl text-slate-300 leading-relaxed">
+                                Primești acces la un pachet de 3 Indicatori TradingView care, combinați, oferă cel mai bun instrument de tranzacționare.
+                            </p>
+                        </div>
+
+                        <div class="space-y-6 sm:space-y-8 mt-8 sm:mt-12">
+                            <div class="space-y-3 sm:space-y-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-accent flex items-center gap-3 justify-center sm:justify-start">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    CoinExpert Oscillator
+                                </h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                                    Un oscilator combinat cu semnale și alerte de Cumpărare/Vânzare incredibil de precise.
+                                </p>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    Include avertismente pentru posibile topuri, posibile bottomuri etc.
+                                </p>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    Conține, de asemenea, mulți indicatori perfecționați (VWAP, MFI, MOM, distanța EMA) care ajută la luarea deciziilor corecte.
+                                </p>
+                            </div>
+
+                            <div class="space-y-3 sm:space-y-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-accent flex items-center gap-3 justify-center sm:justify-start">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    CoinExpert Overlay
+                                </h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                                    Un indicator de analiză a lumânărilor și a trendului, cu semnale și alerte extrem de precise de Cumpărare/Vânzare.
+                                </p>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    Include avertismente pentru posibile vârfuri, manipulare de piață, etc.
+                                </p>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    Conține indicatori rafinați (VWMA, EMAs/SMAs rapide/lente, parabolic SAR flip, niveluri automate de Suport/Rezistență) pentru o luare a deciziilor mai bună.
+                                </p>
+                            </div>
+
+                            <div class="space-y-3 sm:space-y-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-accent flex items-center gap-3 justify-center sm:justify-start">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                    CoinExpert Trend
+                                </h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                                    Un indicator de analiză a trendului care arată clar direcția pieței.
+                                </p>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    Include trasare automată Zig-Zag pentru a anticipa posibile reversări.
+                                </p>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    Are o variantă perfecționată a diferitelor tipuri de Medii Mobile (MA) care evidențiază canale puternice de suport/rezistență.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Caracteristici Principale -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
+                            <div class="bg-slate-800 bg-opacity-50 backdrop-blur-sm border border-slate-700 rounded-xl p-4 sm:p-6 shadow-card transition-all duration-300 hover:bg-slate-800 hover:border-primary hover:shadow-lg hover:scale-105">
+                                <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <h3 class="text-lg sm:text-xl text-primary font-semibold">Semnale Precise</h3>
+                                </div>
+                                <p class="text-slate-300 leading-relaxed text-sm sm:text-base">Alerte de cumpărare și vânzare cu acuratețe ridicată pentru maximizarea profiturilor.</p>
+                            </div>
+                            <div class="bg-slate-800 bg-opacity-50 backdrop-blur-sm border border-slate-700 rounded-xl p-4 sm:p-6 shadow-card transition-all duration-300 hover:bg-slate-800 hover:border-primary hover:shadow-lg hover:scale-105">
+                                <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    <h3 class="text-lg sm:text-xl text-primary font-semibold">Analiză Completă</h3>
+                                </div>
+                                <p class="text-slate-300 leading-relaxed text-sm sm:text-base">Combinația perfectă de indicatori pentru o perspectivă completă asupra pieței.</p>
+                            </div>
+                            <div class="bg-slate-800 bg-opacity-50 backdrop-blur-sm border border-slate-700 rounded-xl p-4 sm:p-6 shadow-card transition-all duration-300 hover:bg-slate-800 hover:border-primary hover:shadow-lg hover:scale-105">
+                                <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 -protection: none; outline: none; pointer-events: none;" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                    <h3 class="text-lg sm:text-xl text-primary font-semibold">Detectare Manipulări</h3>
+                                </div>
+                                <p class="text-slate-300 leading-relaxed text-sm sm:text-base">Identifică manipulările de piață și zonele de risc pentru protejarea capitalului.</p>
+                            </div>
+                            <div class="bg-slate-800 bg-opacity-50 backdrop-blur-sm border border-slate-700 rounded-xl p-4 sm:p-6 shadow-card transition-all duration-300 hover:bg-slate-800 hover:border-primary hover:shadow-lg hover:scale-105">
+                                <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    <h3 class="text-lg sm:text-xl text-primary font-semibold">Suport/Rezistență Automat</h3>
+                                </div>
+                                <p class="text-slate-300 leading-relaxed text-sm sm:text-base">Niveluri automate de suport și rezistență pentru o tranzacționare mai eficientă.</p>
+                            </div>
+                            <div class="bg-slate-800 bg-opacity-50 backdrop-blur-sm border border-slate-700 rounded-xl p-4 sm:p-6 shadow-card transition-all duration-300 hover:bg-slate-800 hover:border-primary hover:shadow-lg hover:scale-105">
+                                <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <h3 class="text-lg sm:text-xl text-primary font-semibold">Alerte în Timp Real</h3>
+                                </div>
+                                <p class="text-slate-300 leading-relaxed text-sm sm:text-base">Notificări instantanee direct pe TradingView și pe telefonul tău.</p>
+                            </div>
+                            <div class="bg-slate-800 bg-opacity-50 backdrop-blur-sm border border-slate-700 rounded-xl p-4 sm:p-6 shadow-card transition-all duration-300 hover:bg-slate-800 hover:border-primary hover:shadow-lg hover:scale-105">
+                                <div class="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                    <h3 class="text-lg sm:text-xl text-primary font-semibold">Compatibilitate TradingView</h3>
+                                </div>
+                                <p class="text-slate-300 leading-relaxed text-sm sm:text-base">Integrare perfectă cu platforma TradingView pentru o experiență optimă.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-primary bg-opacity-20 border border-primary border-opacity-30 rounded-lg p-4 sm:p-6">
+                            <p class="text-slate-300 font-semibold text-base sm:text-lg text-center">
+                                🚀 Acest trio de indicatori oferă o analiză completă și semnale de trading precise pentru a maximiza succesul pe piață!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CoinExpert IBS Section -->
+            <section class="fade-in flex flex-col lg:flex-row items-center gap-8 lg:gap-12 p-4 sm:p-8 rounded-2xl mb-8 sm:mb-12 card-gradient border border-slate-700 shadow-card">
+                <div class="flex-shrink-0 relative rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 mx-auto lg:mx-0">
+                    <img src="https://i.ibb.co/hRB5j8CC/1024px-faraback.png" alt="CoinExpert IBS" class="ibs-image">
+                </div>
+                <div class="flex-1 text-xl text-slate-300 flex flex-col justify-center text-center">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl text-center mb-6 lg:mb-8 text-primary font-bold">
+                        CoinExpert IBS
+                    </h2>
+                    <p class="text-base sm:text-lg max-w-[900px] mb-4 sm:mb-6 mx-auto leading-relaxed">
+                        Indicator TradingView ce conține:
+                    </p>
+                    <ul class="list-none space-y-3 sm:space-y-4 text-base sm:text-lg">
+                        <li class="flex items-center gap-3 justify-center">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                            <span>Semnale de Buy & Sell pentru scalping</span>
+                        </li>
+                        <li class="flex items-center gap-3 justify-center">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                            <span>Semnale de Buy & Sell pentru swing</span>
+                        </li>
+                        <li class="flex items-center gap-3 justify-center">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                            <span>Include zone de take profit</span>
+                        </li>
+                        <li class="flex items-center gap-3 justify-center">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                            <span>Vezi exact când este în Uptrend, dar și în Downtrend</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- CoinExpert Alert Section -->
+            <section class="fade-in p-4 sm:p-8 rounded-2xl mb-8 sm:mb-12 card-gradient border border-slate-700 shadow-card">
+                <div class="max-w-4xl mx-auto space-y-6 sm:space-y-8">
+                    <div class="text-center">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl text-center mb-3 sm:mb-4 text-primary font-bold flex items-center justify-center gap-3 flex-wrap">
+                            <svg class="w-8 h-8 sm:w-10 sm:h-10 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                            <span>CoinExpert Alert</span>
+                        </h2>
+                        <p class="text-lg sm:text-xl text-slate-300 leading-relaxed">
+                            Este un pachet de alerte automate bazat pe CoinExpert Windicator.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-800 bg-opacity-50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 sm:p-8 shadow-card">
+                        <h3 class="text-xl sm:text-2xl font-bold text-accent mb-4 sm:mb-6 flex items-center gap-3">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                            <span>Avantaje</span>
+                        </h3>
+                        <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-4 sm:mb-6">
+                            Primești atenționări pe Discord pentru Bitcoin atunci când anumiți parametri sunt îndepliniți pentru posibile intrări de long și short, top-uri, manipulări de piață, VWAP up și down, zone bearish, dar și bullish etc.
+                        </p>
+
+                        <div class="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
+                            <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                                Alertele sunt trimise de pe Bitget
+                            </p>
+                            <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                                Recomandăm să tranzacționați cryptomonede
+                                <a href="https://partner.bitget.com/bg/NYH6X3" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:text-primaryHover inline-flex items-center gap-1">
+                                    AICI
+                                    <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="bg-primary bg-opacity-20 border border-primary border-opacity-30 rounded-lg p-4 sm:p-6">
+                            <p class="text-slate-300 font-semibold text-base sm:text-lg flex items-start gap-2">
+                                <span class="flex-shrink-0">📒</span>
+                                <span>
+                                    În cazul în care dorești să vezi semnale/alerte pe mai multe monede, recomandăm să folosești CoinExpert Windicator deoarece îți permite acest lucru.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Semnale VIP + Cursuri Section -->
+            <section class="fade-in p-4 sm:p-8 rounded-2xl mb-8 sm:mb-12 card-gradient border border-slate-700 shadow-card">
+                <div class="max-w-4xl mx-auto space-y-6 sm:space-y-8">
+                    <h2 class="text-3xl sm:text-4xl text-center mb-8 sm:mb-12 text-primary font-bold">
+                        Servicii Suplimentare
+                    </h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                        <!-- Semnale VIP -->
+                        <div class="bg-slate-800 bg-opacity-50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 sm:p-8 shadow-card transition-all duration-300 hover:bg-slate-800 hover:border-primary hover:shadow-lg hover:scale-105">
+                            <div class="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                                <svg class="w-6 h-6 sm:w-8 sm:h-8 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                <h3 class="text-xl sm:text-2xl font-bold text-primary">Semnale VIP</h3>
+                            </div>
+                            <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                                Acces live la trade-urile noastre cu semnale exclusive și analize detaliate pentru maximizarea profiturilor în timp real.
+                            </p>
+                        </div>
+
+                        <!-- Cursuri -->
+                        <div class="bg-slate-800 bg-opacity-50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 sm:p-8 shadow-card transition-all duration-300 hover:bg-slate-800 hover:border-primary hover:shadow-lg hover:scale-105">
+                            <div class="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                                <svg class="w-6 h-6 sm:w-8 sm:h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
+                                <h3 class="text-xl sm:text-2xl font-bold text-primary">Cursuri</h3>
+                            </div>
+                            <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                                Pentru a aduce încă un plus la pachetele noastre de Windicatori, am decis să oferim gratuit acces la cursuri de tranzacționare. Acestea sunt disponibile doar la achiziționarea pachetului ALL ACCESS.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action - Vezi Pachete -->
+            <section class="fade-in text-center py-8 sm:py-16 mb-8 sm:mb-12">
+                <a href="/index.html#pricing" class="bg-primary hover:bg-primaryHover text-white px-8 sm:px-12 py-4 sm:py-6 rounded-lg font-semibold text-lg sm:text-xl transition-all duration-300 hover:shadow-lg hover:scale-105 inline-block">
+                    Vezi Pachete
+                </a>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="card-gradient text-center py-8 sm:py-12 px-4 border-t border-slate-700">
+            <div class="w-full max-w-7xl mx-auto">
+                <div class="text-primary font-semibold text-base sm:text-lg mb-2">CoinExpert</div>
+                <div class="text-slate-400 text-sm sm:text-base">© 2018 - 2025 CoinExpert | Toate drepturile rezervate</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Intersection Observer for Fade-in Animations
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
